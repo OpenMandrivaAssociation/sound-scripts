@@ -21,7 +21,7 @@ BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
 Requires(Pre): chkconfig >= 1.3.8-3mdk, coreutils, /usr/bin/tr, grep, rpm-helper
 Conflicts: initscripts <= 7.06-50mdk
-Conflicts: alsa-utils < 1.0.6-2mdk
+Conflicts: alsa-utils <= 1.0.14-1.rc4
 Conflicts: udev < 0.50-5mdk
 
 %description
