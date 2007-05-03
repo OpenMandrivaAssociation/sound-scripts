@@ -67,7 +67,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc ChangeLog
 %_bindir/reset_sound
+/bin/reset_sound
 %_sbindir/alsa.agent
+/sbin/alsa.agent
 %config(noreplace) /etc/rc.d/rc.alsa_default
 %config(noreplace) /etc/sysconfig/alsa
 /etc/rc.d/init.d/*
