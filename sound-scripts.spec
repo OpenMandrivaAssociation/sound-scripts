@@ -10,7 +10,7 @@
 
 Summary: The sound scripts
 Name: sound-scripts
-Version: 0.48
+Version: 0.49
 Release: %mkrel 1
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
@@ -23,6 +23,7 @@ Requires(Pre): chkconfig >= 1.3.8-3mdk, coreutils, /usr/bin/tr, grep, rpm-helper
 Conflicts: initscripts <= 7.06-50mdk
 Conflicts: alsa-utils <= 1.0.14-1.rc4
 Conflicts: udev < 0.50-5mdk
+Conflicts: harddrake < 10.4.191-1mdv2008.0
 
 %description
 The sound-scripts package contains the basic system scripts used:
@@ -74,4 +75,5 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/sysconfig/alsa
 /etc/rc.d/init.d/*
 %config(noreplace) %attr(0644,root,root) /%{_sysconfdir}/udev/rules.d/*
+%config(noreplace) /etc/modprobe.d/snd-usb-audio
 %_datadir/alsa/
