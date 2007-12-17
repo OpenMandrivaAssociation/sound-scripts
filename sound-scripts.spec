@@ -16,7 +16,6 @@ License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
 Source0: %name-%version.tar.bz2
-BuildRoot: %_tmppath/%name-root
 BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
 Requires(Pre): chkconfig >= 1.3.8-3mdk, coreutils, /usr/bin/tr, grep, rpm-helper
