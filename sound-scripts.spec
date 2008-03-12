@@ -10,7 +10,7 @@
 
 Summary: The sound scripts
 Name: sound-scripts
-Version: 0.49
+Version: 0.50
 Release: %mkrel 2
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
