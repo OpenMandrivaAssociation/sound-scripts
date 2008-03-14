@@ -11,7 +11,7 @@
 Summary: The sound scripts
 Name: sound-scripts
 Version: 0.50
-Release: %mkrel 2
+Release: %mkrel 3
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
@@ -19,7 +19,7 @@ Source0: %name-%version.tar.bz2
 BuildRoot: %_tmppath/%name-root
 BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
-Requires(Pre): chkconfig >= 1.3.8-3mdk, coreutils, /usr/bin/tr, grep, rpm-helper
+Requires(Pre): chkconfig >= 1.3.8-3mdk, coreutils, grep, rpm-helper
 Conflicts: initscripts <= 7.06-50mdk
 Conflicts: alsa-utils <= 1.0.14-1.rc4
 Conflicts: udev < 0.50-5mdk
