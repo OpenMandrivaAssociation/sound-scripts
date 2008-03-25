@@ -10,8 +10,8 @@
 
 Summary: The sound scripts
 Name: sound-scripts
-Version: 0.50
-Release: %mkrel 3
+Version: 0.51
+Release: %mkrel 1
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
