@@ -1,6 +1,3 @@
-# 	$Id: sound-scripts.spec 62275 2006-09-18 22:32:24Z blino $	
-# EDIT IN CVS NOT IN SOURCE PACKAGE (NO PATCH ALLOWED).
-
 # The following macro were stolen from initscripts spec file:
 # The restart part in the real _post_service doesn't work with netfs and isn't needed
 # for other scripts
