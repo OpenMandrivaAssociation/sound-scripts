@@ -7,7 +7,7 @@
 
 Summary: The sound scripts
 Name: sound-scripts
-Version: 0.54
+Version: 0.55
 Release: %mkrel 1
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
@@ -73,4 +73,5 @@ rm -rf $RPM_BUILD_ROOT
 /etc/rc.d/init.d/*
 %config(noreplace) %attr(0644,root,root) /%{_sysconfdir}/udev/rules.d/*
 %config(noreplace) /etc/modprobe.d/snd-usb-audio
+%config(noreplace) /etc/modprobe.d/snd-oss
 %_datadir/alsa/
