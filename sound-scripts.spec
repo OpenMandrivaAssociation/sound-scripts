@@ -1,18 +1,14 @@
-# The following macro were stolen from initscripts spec file:
-# The restart part in the real _post_service doesn't work with netfs and isn't needed
-# for other scripts
-%define _mypost_service() if [ $1 = 1 ]; then /sbin/chkconfig --add %{1}; fi;
-%define initlvl_chg() if [[ -f /etc/rc3.d/S%{2}%{1} ]] && [[ -f /etc/rc5.d/S%{2}%{1} ]] && egrep -q 'chkconfig: [0-9]+ %{3}' /etc/init.d/%{1}; then chkconfig --add %{1} || : ; fi; \
-%{nil}
-
 Summary: The sound scripts
 Name: sound-scripts
 Version: 0.60
-Release: %mkrel 2
+Release: %mkrel 3
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
 Source0: %name-%version.tar.bz2
+# systemd unit services
+Source1: alsa.service
+Source2: sound.service
 BuildRoot: %_tmppath/%name-root
 BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
@@ -38,21 +34,17 @@ make
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/etc
 %makeinstall_std
+mkdir -p $RPM_BUILD_ROOT/lib/systemd/system/
+install -m755 %SOURCE1 $RPM_BUILD_ROOT/lib/systemd/system/alsa.service
+install -m755 %SOURCE2 $RPM_BUILD_ROOT/lib/systemd/system/sound.service
 
 # there's no interesting string that is already gprintified
 export DONT_GPRINTIFY=1
 
 
 %post
-%_mypost_service sound
-%_mypost_service alsa
-
-# only needed on upgrade
-if [ $1 != 0 ]; then
-	# Handle boot sequence changes on upgrade
-	%initlvl_chg sound 71 18
-	%initlvl_chg alsa 70 17
-fi
+%_post_service sound
+%_post_service alsa
 
 %preun
 %_preun_service sound
@@ -75,3 +67,5 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/modprobe.d/snd-usb-audio
 %config(noreplace) /etc/modprobe.d/snd-oss
 %_datadir/alsa/
+/lib/systemd/system/alsa.service
+/lib/systemd/system/sound.service
