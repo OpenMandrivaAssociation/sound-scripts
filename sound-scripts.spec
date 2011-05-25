@@ -1,14 +1,11 @@
 Summary: The sound scripts
 Name: sound-scripts
-Version: 0.60
-Release: %mkrel 4
+Version: 0.61
+Release: %mkrel 1
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
 Source0: %name-%version.tar.bz2
-# systemd unit services
-Source1: alsa.service
-Source2: sound.service
 BuildRoot: %_tmppath/%name-root
 BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
@@ -34,9 +31,6 @@ make
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/etc
 %makeinstall_std
-mkdir -p $RPM_BUILD_ROOT/lib/systemd/system/
-install -m755 %SOURCE1 $RPM_BUILD_ROOT/lib/systemd/system/alsa.service
-install -m755 %SOURCE2 $RPM_BUILD_ROOT/lib/systemd/system/sound.service
 
 # there's no interesting string that is already gprintified
 export DONT_GPRINTIFY=1
