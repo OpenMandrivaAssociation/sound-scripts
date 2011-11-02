@@ -1,11 +1,12 @@
 Summary: The sound scripts
 Name: sound-scripts
 Version: 0.61
-Release: %mkrel 1
+Release: %mkrel 2
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
 Source0: %name-%version.tar.bz2
+Patch0:	sound-scripts.asound.state.patch
 BuildRoot: %_tmppath/%name-root
 BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
@@ -23,6 +24,7 @@ The sound-scripts package contains the basic system scripts used:
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 make
