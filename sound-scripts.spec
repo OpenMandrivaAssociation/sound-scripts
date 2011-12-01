@@ -30,8 +30,8 @@ The sound-scripts package contains the basic system scripts used:
 make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/etc
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/etc
 %makeinstall_std
 
 # there's no interesting string that is already gprintified
@@ -47,7 +47,7 @@ export DONT_GPRINTIFY=1
 %_preun_service alsa
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
