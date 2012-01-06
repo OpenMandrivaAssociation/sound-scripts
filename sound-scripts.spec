@@ -9,10 +9,6 @@ Source0:	%{name}-%{version}.tar.xz
 BuildArch:	noarch
 Requires:	procps >= 2.0.7-8mdk, module-init-tools, aumix-text
 Requires(pre):	chkconfig >= 1.3.8-3mdk, coreutils, grep, rpm-helper
-Conflicts:	initscripts <= 7.06-50mdk
-Conflicts:	alsa-utils <= 1.0.14-1.rc4
-Conflicts:	udev < 0.50-5mdk
-Conflicts:	harddrake < 10.4.191-1mdv2008.0
 
 %description
 The sound-scripts package contains the basic system scripts used:
