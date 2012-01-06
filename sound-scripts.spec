@@ -3,7 +3,7 @@ Name:		sound-scripts
 Version:	0.62
 Release:	1
 License:	GPL
-Url:		http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
+Url:		http://svn.mandriva.com/viewvc/soft/sound-scripts/
 Group:		System/Base
 Source0:	%{name}-%{version}.tar.xz
 BuildArch:	noarch
