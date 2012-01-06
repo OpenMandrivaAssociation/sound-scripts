@@ -23,8 +23,6 @@ The sound-scripts package contains the basic system scripts used:
 make
 
 %install
-rm -rf %{buildroot}
-mkdir -p %{buildroot}/etc
 %makeinstall_std
 
 # there's no interesting string that is already gprintified
