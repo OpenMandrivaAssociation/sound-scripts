@@ -51,6 +51,6 @@ export DONT_GPRINTIFY=1
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/udev/rules.d/*
 %config(noreplace) %{_sysconfdir}/modprobe.d/snd-usb-audio.conf
 %config(noreplace) %{_sysconfdir}/modprobe.d/snd-oss.conf
-%{_datadir}/alsa/
+%{_datadir}/alsa/alsa-utils
 /lib/systemd/system/alsa.service
 /lib/systemd/system/sound.service
