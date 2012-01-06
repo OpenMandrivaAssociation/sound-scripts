@@ -8,7 +8,7 @@ Group:		System/Base
 Source0:	%{name}-%{version}.tar.xz
 BuildArch:	noarch
 Requires:	aumix-text
-Requires(pre):	rpm-helper
+Requires(post,preun):	rpm-helper
 
 %description
 The sound-scripts package contains the basic system scripts used:
