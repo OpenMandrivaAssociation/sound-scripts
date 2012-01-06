@@ -42,7 +42,7 @@ export DONT_GPRINTIFY=1
 /bin/reset_sound
 %{_sbindir}/alsa.agent
 /sbin/alsa.agent
-%config(noreplace) %{_sysconfdir}/rc.d/rc.alsa_default
+%{_sysconfdir}/rc.d/rc.alsa_default
 %config(noreplace) %{_sysconfdir}/sysconfig/alsa
 %{_initrddir}/*
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/udev/rules.d/*
