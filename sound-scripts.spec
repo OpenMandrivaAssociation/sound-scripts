@@ -30,7 +30,6 @@ mkdir -p %{buildroot}/etc
 # there's no interesting string that is already gprintified
 export DONT_GPRINTIFY=1
 
-
 %post
 %_post_service sound
 %_post_service alsa
@@ -41,7 +40,7 @@ export DONT_GPRINTIFY=1
 
 %files
 %doc ChangeLog
-%_bindir/reset_sound
+%{_bindir}/reset_sound
 /bin/reset_sound
 %{_sbindir}/alsa.agent
 /sbin/alsa.agent
