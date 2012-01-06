@@ -1,12 +1,11 @@
 Summary: The sound scripts
 Name: sound-scripts
 Version: 0.62
-Release: %mkrel 1
+Release: 1
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
 Source0: %name-%version.tar.xz
-BuildRoot: %_tmppath/%name-root
 BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
 Requires(Pre): chkconfig >= 1.3.8-3mdk, coreutils, grep, rpm-helper
@@ -44,11 +43,7 @@ export DONT_GPRINTIFY=1
 %_preun_service sound
 %_preun_service alsa
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc ChangeLog
 %_bindir/reset_sound
 /bin/reset_sound
