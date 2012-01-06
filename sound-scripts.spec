@@ -1,12 +1,11 @@
 Summary: The sound scripts
 Name: sound-scripts
-Version: 0.61
-Release: %mkrel 2
+Version: 0.62
+Release: %mkrel 1
 License: GPL
 Url: http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group: System/Base
-Source0: %name-%version.tar.bz2
-Patch0:	sound-scripts.asound.state.patch
+Source0: %name-%version.tar.xz
 BuildRoot: %_tmppath/%name-root
 BuildArch: noarch
 Requires: procps >= 2.0.7-8mdk, module-init-tools, aumix-text
@@ -24,7 +23,6 @@ The sound-scripts package contains the basic system scripts used:
 
 %prep
 %setup -q
-%apply_patches
 
 %build
 make
@@ -60,8 +58,8 @@ rm -rf %{buildroot}
 %config(noreplace) /etc/sysconfig/alsa
 /etc/rc.d/init.d/*
 %config(noreplace) %attr(0644,root,root) /%{_sysconfdir}/udev/rules.d/*
-%config(noreplace) /etc/modprobe.d/snd-usb-audio
-%config(noreplace) /etc/modprobe.d/snd-oss
+%config(noreplace) /etc/modprobe.d/snd-usb-audio.conf
+%config(noreplace) /etc/modprobe.d/snd-oss.conf
 %_datadir/alsa/
 /lib/systemd/system/alsa.service
 /lib/systemd/system/sound.service
