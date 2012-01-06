@@ -7,8 +7,8 @@ Url:		http://www.mandrivalinux.com/cgi-bin/cvsweb.cgi/soft/sound-scripts/
 Group:		System/Base
 Source0:	%{name}-%{version}.tar.xz
 BuildArch:	noarch
-Requires:	procps >= 2.0.7-8mdk, module-init-tools, aumix-text
-Requires(pre):	chkconfig >= 1.3.8-3mdk, coreutils, grep, rpm-helper
+Requires:	aumix-text
+Requires(pre):	rpm-helper
 
 %description
 The sound-scripts package contains the basic system scripts used:
