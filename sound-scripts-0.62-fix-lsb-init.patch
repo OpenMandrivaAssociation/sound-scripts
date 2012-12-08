@@ -1,0 +1,30 @@
+--- sound-scripts-0.61/alsa.init.0001	2009-10-02 15:11:52.000000000 +0100
++++ sound-scripts-0.61/alsa.init	2012-04-06 12:03:52.924102673 +0100
+@@ -36,8 +36,11 @@
+ #
+ ### BEGIN INIT INFO
+ # Provides: alsa
+-# Should-Start: harddrake
++# Should-Start:
++# Required-Start:
++# Required-Stop:
+ # Default-Start: 2 3 4 5
++# Default-Stop: 0 6
+ # Short-Description: Launch alsa sound system
+ # Description: Launch alsa sound system
+ ### END INIT INFO
+--- sound-scripts-0.61/sound.init.0001	2012-04-06 12:02:54.676105860 +0100
++++ sound-scripts-0.61/sound.init	2012-04-06 12:03:30.988479342 +0100
+@@ -9,8 +9,11 @@
+ #
+ ### BEGIN INIT INFO
+ # Provides: sound
+-# Should-Start: harddrake alsa
++# Should-Start: alsa
++# Required-Start:
++# Required-Stop:
+ # Default-Start: 2 3 4 5
++# Default-Stop: 0 6
+ # Short-Description: Launch sound
+ # Description: Launch sound
+ ### END INIT INFO

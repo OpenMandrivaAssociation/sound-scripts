@@ -1,0 +1,5 @@
+--- sound-scripts-0.62/snd-oss.conf.modprobe.orig	2012-04-15 11:43:33.571690462 +0100
++++ sound-scripts-0.62/snd-oss.conf.modprobe	2012-04-15 11:43:46.153435157 +0100
+@@ -1 +1 @@
+-install snd /sbin/modprobe --first-time --ignore-install --all snd snd_pcm_oss snd_seq_oss snd_mixer_oss
++install snd /sbin/modprobe --ignore-install snd && { /sbin/modprobe --all snd_pcm_oss snd_seq_oss || :; }
