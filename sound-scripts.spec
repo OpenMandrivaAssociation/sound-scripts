@@ -1,13 +1,13 @@
 Summary:	The sound scripts
 Name:		sound-scripts
 Version:	0.62
-Release:	4
+Release:	5
 License:	GPLv2+
 Url:		http://svn.mandriva.com/viewvc/soft/sound-scripts/
 Group:		System/Base
 Source0:	%{name}-%{version}.tar.xz
-Patch1: sound-scripts-0.62-fix-lsb-init.patch
-Patch2: sound-scripts-0.62-fix-oss-emulation-for-kmod.patch
+Patch1:		sound-scripts-0.62-fix-lsb-init.patch
+Patch2:		sound-scripts-0.62-fix-oss-emulation-for-kmod.patch
 BuildArch:	noarch
 Requires:	aumix-text
 Requires:	kmod
@@ -33,13 +33,13 @@ make
 # there's no interesting string that is already gprintified
 export DONT_GPRINTIFY=1
 
-# (cg) alsa-utils has native support for sustemd that totally overrides
-# all the volume save/restoration features of this package. In order to
-# allow for use of sysvinit for now, we simply mask the services under systemd
-mkdir -p %{buildroot}%{_unitdir}
-rm -f %{buildroot}%{_unitdir}/{alsa,sound}.service
-ln -s /dev/null %{buildroot}%{_unitdir}/sound.service
-ln -s /dev/null %{buildroot}%{_unitdir}/alsa.service
+# (tpg) we don't need this anymore
+rm -rf %{buildroot}%{_unitdir}/*.service
+rm -rf %{_initrddir}
+
+# (tpg) move rules to proper place
+mkdir -p %{buildroot}/lib/
+mv %{buildroot}%{_sysconfdir}/udev %{buildroot}/lib/
 
 # (cg) The modprobe tweaks to snd-usb-audio prevents it from loading
 # unless the sysvinit scritps are loaded. This is incorrect as when
@@ -65,14 +65,6 @@ if [ -e /etc/modprobe.d/snd-oss ]; then
 	mv /etc/modprobe.d/snd-oss{,.conf}
 fi
 
-%post
-%_post_service sound
-%_post_service alsa
-
-%preun
-%_preun_service sound
-%_preun_service alsa
-
 %files
 %doc ChangeLog
 %{_bindir}/reset_sound
@@ -83,13 +75,10 @@ fi
 %{_sysconfdir}/sound/profiles/alsa/snd-oss.conf
 %{_sysconfdir}/sound/profiles/pulse/snd-oss.conf
 %config(noreplace) %{_sysconfdir}/sysconfig/alsa
-%{_initrddir}/*
-%config(noreplace) %attr(0644,root,root) %{_sysconfdir}/udev/rules.d/*
+%config(noreplace) %attr(0644,root,root) /lib/udev/rules.d/*
 #config(noreplace) %{_sysconfdir}/modprobe.d/snd-usb-audio.conf
 %config(noreplace) %{_sysconfdir}/modprobe.d/snd-oss.conf
 %{_datadir}/alsa/alsa-utils
-/lib/systemd/system/alsa.service
-/lib/systemd/system/sound.service
 
 
 %changelog
