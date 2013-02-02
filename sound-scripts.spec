@@ -35,7 +35,7 @@ export DONT_GPRINTIFY=1
 
 # (tpg) we don't need this anymore
 rm -rf %{buildroot}%{_unitdir}/*.service
-rm -rf %{_initrddir}
+rm -rf %{buildroot}%{_initrddir}
 
 # (tpg) move rules to proper place
 mkdir -p %{buildroot}/lib/
