@@ -1,7 +1,7 @@
 Summary:	The sound scripts
 Name:		sound-scripts
 Version:	0.62.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Url:		https://github.com/OpenMandrivaSoftware/sound-scripts
 Group:		System/Base
