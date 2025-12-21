@@ -12,6 +12,7 @@ Requires:	kmod
 Requires:	alsa-utils >= 1.0.25
 Requires(post,preun):	rpm-helper
 
+BuildRequires:	make
 %description
 The sound-scripts package contains the basic system scripts used:
 - to setup default sound mixer on first boot
